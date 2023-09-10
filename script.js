@@ -39,4 +39,45 @@ let questions = [
         answer_4: "6",
         right_answer: 4
     },
-]
+];
+
+let currentQuestion = 0;
+
+function init() {
+    let question = questions[currentQuestion];
+    let cardContainer = document.getElementById('cardContainer');
+    cardContainer.innerHTML = '';
+    /*html*/
+    cardContainer.innerHTML += `
+    <div class="card quizCard">
+        <img src="./img/question-mark.jpg" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">${question['question']}</h5>
+
+          <div class="card mb-2 quizAnswerCard" onclick="answer('answer_1')">
+            <div class="card-body">${question['answer_1']}</div>
+          </div>
+
+          <div class="card mb-2 quizAnswerCard" onclick="answer('answer_2')">
+            <div class="card-body">${question['answer_2']}</div>
+          </div>
+
+          <div class="card mb-2 quizAnswerCard" onclick="answer('answer_3')">
+            <div class="card-body">${question['answer_3']}</div>
+          </div>
+
+          <div class="card mb-2 quizAnswerCard" onclick="answer('answer_4')">
+            <div class="card-body">${question['answer_4']}</div>
+          </div>
+          <div class="question-footer">
+            <div><b>1</b> von <b>${questions.length}</b> Fragen</div>
+            <button type="button" class="btn btn-primary">Nächste Frage</button>
+          </div>
+        </div>
+      </div>
+    `;
+}
+
+function answer(selection) {
+    
+}
