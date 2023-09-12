@@ -43,17 +43,43 @@ let questions = [
 ];
 
 let currentQuestion = 0;
-
-let idOfRightAnswer = "answer_" + questions[currentQuestion]['right_answer'];
+let idOfRightAnswer = "answer_" + questions[currentQuestion]["right_answer"];
+let points = 0;
+let widthProgressBar = 0;
 
 function init() {
   let question = questions[currentQuestion];
   let cardContainer = document.getElementById("cardContainer");
   cardContainer.innerHTML = "";
-  /*html*/
-  cardContainer.innerHTML += `
-    <div class="card quizCard">
+
+  if (questions.length <= currentQuestion) {
+    /*html*/
+    cardContainer.innerHTML = `
+      <div class="card quizCard">
+      <img src="./img/winner.jpg" class="card-img-top" alt="..." />
+      <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar progress-bar-striped bg-success" style="width: ${widthProgressBar}%"></div>
+      </div>
+      <div class="card-body endCard">
+        <div class="titleAndPoints">
+          <h5 class="card-title">Quiz beendet</h5>
+          <div class="points alignCenter">
+            <p>Deine Punktzahl: <br>${points} von ${questions.length}</p>
+          </div>
+        </div>
+        <div><img src="./img/tropy.png" alt=""></div>
+      </div>
+    </div>
+    `;
+
+  } else {
+    /*html*/
+    cardContainer.innerHTML += `
+      <div class="card quizCard">
         <img src="./img/question-mark.jpg" class="card-img-top" alt="..." />
+        <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar progress-bar-striped bg-success" style="width: ${widthProgressBar}%"></div>
+        </div>
         <div class="card-body">
           <h5 class="card-title">${question["question"]}</h5>
 
@@ -73,23 +99,35 @@ function init() {
             <div class="card-body">${question["answer_4"]}</div>
           </div>
           <div class="question-footer">
-            <div><b>1</b> von <b>${questions.length}</b> Fragen</div>
-            <button type="button" class="btn btn-primary" id="nextQuestion" disabled>Nächste Frage</button>
+            <div><b>${currentQuestion + 1}</b> von <b>${questions.length}</b> Fragen</div>
+            <button type="button" class="btn btn-primary" id="nextQuestion" disabled onclick="nextQuestion()">Nächste Frage</button>
           </div>
         </div>
       </div>
     `;
+  }
 }
 
 function answer(selection) {
   let question = questions[currentQuestion];
   let selectedQuestionNumber = selection.slice(-1);
 
-  if (question['right_answer'] == selectedQuestionNumber) {
-    document.getElementById(selection).classList.add('bg-success');
+  if (question["right_answer"] == selectedQuestionNumber) {
+    document.getElementById(selection).classList.add("bg-success");
+    countPointsPlusOne();
   } else {
-    document.getElementById(selection).classList.add('bg-danger');
-    document.getElementById(idOfRightAnswer).classList.add('bg-success');
+    document.getElementById(selection).classList.add("bg-danger");
+    document.getElementById(idOfRightAnswer).classList.add("bg-success");
   }
-  document.getElementById('nextQuestion').disabled = false;
+  document.getElementById("nextQuestion").disabled = false;
+}
+
+function nextQuestion() {
+  currentQuestion += 1;
+  widthProgressBar = 100 / questions.length * currentQuestion;
+  init();
+}
+
+function countPointsPlusOne() {
+  points += 1;
 }

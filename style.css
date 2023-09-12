@@ -34,3 +34,35 @@ main {
 .bg-success, .bg-danger {
     color: white;
 }
+
+.endCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 0;
+}
+
+.endCard p {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.points {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
+
+.alignCenter {
+    text-align: center;
+}
+
+.titleAndPoints {
+    flex-grow: 1;
+}
+
+.card img {
+
+}
