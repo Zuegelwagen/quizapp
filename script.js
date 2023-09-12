@@ -43,7 +43,6 @@ let questions = [
 ];
 
 let currentQuestion = 0;
-let idOfRightAnswer = "answer_" + questions[currentQuestion]["right_answer"];
 let points = 0;
 let widthProgressBar = 0;
 
@@ -65,7 +64,7 @@ function init() {
           <h5 class="card-title">Quiz beendet</h5>
           <div class="points alignCenter column">
             <p>Deine Punktzahl: <br>${points} von ${questions.length}</p>
-            <button type="button" class="btn btn-primary" onclick="resetGame()">Spiel dasselbe Quiz nochmal!</button>
+            <button type="button" class="btn btn-primary resetGame" onclick="resetGame()">Spiel dasselbe Quiz nochmal!</button>
         </div>
         </div>
         <div><img src="./img/tropy.png" alt=""></div>
@@ -112,6 +111,7 @@ function init() {
 function answer(selection) {
   let question = questions[currentQuestion];
   let selectedQuestionNumber = selection.slice(-1);
+  let idOfRightAnswer = "answer_" + questions[currentQuestion]["right_answer"];
 
   if (question["right_answer"] == selectedQuestionNumber) {
     document.getElementById(selection).classList.add("bg-success");
