@@ -30,3 +30,7 @@ main {
     background-color: rgba(0, 0, 0, 0.1);
     transition: 125ms ease-in-out;
 }
+
+.bg-success, .bg-danger {
+    color: white;
+}
