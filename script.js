@@ -63,9 +63,10 @@ function init() {
       <div class="card-body endCard">
         <div class="titleAndPoints">
           <h5 class="card-title">Quiz beendet</h5>
-          <div class="points alignCenter">
+          <div class="points alignCenter column">
             <p>Deine Punktzahl: <br>${points} von ${questions.length}</p>
-          </div>
+            <button type="button" class="btn btn-primary" onclick="resetGame()">Spiel dasselbe Quiz nochmal!</button>
+        </div>
         </div>
         <div><img src="./img/tropy.png" alt=""></div>
       </div>
@@ -130,4 +131,11 @@ function nextQuestion() {
 
 function countPointsPlusOne() {
   points += 1;
+}
+
+function resetGame() {
+  currentQuestion = 0;
+  points = 0;
+  widthProgressBar = 0;
+  init();
 }

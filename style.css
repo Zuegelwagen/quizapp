@@ -63,6 +63,7 @@ main {
     flex-grow: 1;
 }
 
-.card img {
-
+.column {
+    display: flex;
+    flex-direction: column;
 }
