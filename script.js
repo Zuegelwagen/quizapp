@@ -45,6 +45,9 @@ let questions = [
 let currentQuestion = 0;
 let points = 0;
 let widthProgressBar = 0;
+let audioRight = new Audio('sounds/right.mp3');
+let audioWrong = new Audio('sounds/wrong.mp3');
+
 
 function init() {
   let question = questions[currentQuestion];
@@ -115,10 +118,12 @@ function answer(selection) {
 
   if (question["right_answer"] == selectedQuestionNumber) {
     document.getElementById(selection).classList.add("bg-success");
+    audioRight.play();
     countPointsPlusOne();
   } else {
     document.getElementById(selection).classList.add("bg-danger");
     document.getElementById(idOfRightAnswer).classList.add("bg-success");
+    audioWrong.play();
   }
   document.getElementById("nextQuestion").disabled = false;
 }
