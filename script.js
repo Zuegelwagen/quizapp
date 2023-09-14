@@ -126,6 +126,13 @@ function answer(selection) {
     audioWrong.play();
   }
   document.getElementById("nextQuestion").disabled = false;
+  disableAllAnswerButtons();
+}
+
+function disableAllAnswerButtons() {
+  for (let i = 1; i < 5; i++) {
+    document.getElementById(`answer_${i}`).onclick = null; 
+  }
 }
 
 function nextQuestion() {
