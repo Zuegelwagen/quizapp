@@ -1,87 +1,86 @@
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-
 main {
-    background-color: #FEFAEF;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: #fefaef;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .quizCard {
-    width: 30rem;
+  width: 30rem;
 }
 
 .question-footer {
-    border-top: 1px solid rgba(0, 0, 0, 0.25);
-    display: flex;
-    justify-content: space-between;
-    padding-top: 12px;
-    align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+  align-items: center;
 }
 
 .quizAnswerCard:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.1);
-    transition: 125ms ease-in-out;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: 125ms ease-in-out;
 }
 
-.bg-success, .bg-danger {
-    color: white;
+.bg-success,
+.bg-danger {
+  color: white;
 }
 
 .endCard {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 0;
 }
 
 .endCard p {
-    text-align: center;
-    font-size: 30px;
-    font-weight: 700;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
 }
 
 .points {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
 }
 
 .alignCenter {
-    text-align: center;
+  text-align: center;
 }
 
 .titleAndPoints {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .resetGame {
-    margin-top: 24px;
+  margin-top: 24px;
 }
 
 .card-img-top {
-    object-fit: cover;
+  object-fit: cover;
 }
 
 @media (max-width: 768px) {
-    .endCard p {
-        font-size: 24px;
-    }
-    .trophy {
-        height: 250px;
-    }
-
+  .endCard p {
+    font-size: 24px;
+  }
+  .trophy {
+    height: 250px;
+  }
 }
