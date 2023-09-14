@@ -47,6 +47,9 @@ let points = 0;
 let widthProgressBar = 0;
 let audioRight = new Audio('sounds/right.mp3');
 let audioWrong = new Audio('sounds/wrong.mp3');
+let audioApplauseMini = new Audio('sounds/applause_mini.mp3');
+let audioApplauseMidi = new Audio('sounds/applause_midi.mp3');
+let audioApplauseMaxi = new Audio('sounds/applause_maxi.mp3');
 
 
 function init() {
@@ -74,6 +77,16 @@ function init() {
       </div>
     </div>
     `;
+    if (points == 0) {
+      audioApplauseMini.play();
+    }
+    if (4 >= points >= 1) {
+      audioApplauseMidi.play();
+    }
+    if (points ==5) {
+      audioApplauseMaxi.play();
+    }
+
 
   } else {
     /*html*/
@@ -131,7 +144,8 @@ function answer(selection) {
 
 function disableAllAnswerButtons() {
   for (let i = 1; i < 5; i++) {
-    document.getElementById(`answer_${i}`).onclick = null; 
+    document.getElementById(`answer_${i}`).onclick = null;
+    document.getElementById(`answer_${i}`).style.cursor = 'default';
   }
 }
 
@@ -149,5 +163,15 @@ function resetGame() {
   currentQuestion = 0;
   points = 0;
   widthProgressBar = 0;
+  stopAllAudios();
   init();
+}
+
+function stopAllAudios() {
+  audioApplauseMaxi.pause();
+  audioApplauseMaxi.currentTime = 0;
+  audioApplauseMidi.pause();
+  audioApplauseMidi.currentTime = 0;
+  audioApplauseMini.pause();
+  audioApplauseMini.currentTime = 0;
 }
