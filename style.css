@@ -71,3 +71,17 @@ main {
 .resetGame {
     margin-top: 24px;
 }
+
+.card-img-top {
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .endCard p {
+        font-size: 24px;
+    }
+    .trophy {
+        height: 250px;
+    }
+
+}

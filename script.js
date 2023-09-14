@@ -70,7 +70,7 @@ function init() {
             <button type="button" class="btn btn-primary resetGame" onclick="resetGame()">Spiel dasselbe Quiz nochmal!</button>
         </div>
         </div>
-        <div><img src="./img/tropy.png" alt=""></div>
+        <div><img class="trophy" src="./img/tropy.png" alt=""></div>
       </div>
     </div>
     `;
